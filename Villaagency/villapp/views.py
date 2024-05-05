@@ -11,3 +11,9 @@ def signup(request):
 
 def login(request):
     return render(request,'login.html')
+
+def pro(request):
+    return render(request, 'properties.html')
+
+def prodetails(request):
+    return render(request, 'property_details.html')
