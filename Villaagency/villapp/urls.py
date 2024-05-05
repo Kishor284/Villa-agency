@@ -8,6 +8,7 @@ urlpatterns=[
     path('log/',views.login, name='login'),
     path('pro/',views.pro, name='pro'),
     path('det/',views.prodetails, name='det'),
+    path('file/',views.profile, name='file'),
 
     
 ]
