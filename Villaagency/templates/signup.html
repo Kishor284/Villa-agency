@@ -20,13 +20,20 @@
     <link rel="stylesheet" href="{% static 'css/owl.css' %}">
     <link rel="stylesheet" href="{% static 'css/animate.css' %}">
     <link rel="stylesheet"href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
-<!--
 
-TemplateMo 591 villa agency
+    <script>
+      function validatePhoneNumber() {
+          var phoneNumber = document.getElementById("numbers").value;
+          var regex = /^[0-9]{10}$/; // Regex for 10 digit numeric phone number
+          if(regex.test(phoneNumber)) {
+              alert("Phone number is valid.");
+          } else {
+              alert("Please enter a valid 10 digit phone number.");
+          }
+      }
+    </script>
 
-https://templatemo.com/tm-591-villa-agency
 
--->
   </head>
 
 <body>
@@ -127,7 +134,7 @@ https://templatemo.com/tm-591-villa-agency
               <div class="col-lg-12">
                 <fieldset>
                   <label for="username">User Name</label>
-                  <input type="name" name="name" id="name" placeholder="Your UserName..." autocomplete="off" required>
+                  <input type="name" name="username" id="name" placeholder="Your UserName..." autocomplete="off" required>
                 </fieldset>
               </div>
               <div class="col-lg-12">
@@ -139,7 +146,7 @@ https://templatemo.com/tm-591-villa-agency
               <div class="col-lg-12">
                 <fieldset>
                   <label for="phoneno">Phone NO</label>
-                  <input type="number" name="number" id="subject" placeholder="Your Phone no..." autocomplete="off" >
+                  <input type="number" name="numbers" id="subject" onchange="validatePhoneNumber()" placeholder="Your Phone no..." autocomplete="off" >
                 </fieldset>
               </div>
               <div class="col-lg-12">
@@ -150,7 +157,7 @@ https://templatemo.com/tm-591-villa-agency
               </div>
               <div class="col-lg-12">
                 <fieldset>
-                  <button type="submit" id="form-submit" class="orange-button">Send Message</button>
+                  <button type="submit" id="form-submit" class="orange-button" onclick="validatePhoneNumber()" >Register</button>
                 </fieldset>
               </div>
             </div>
