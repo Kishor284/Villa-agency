@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="{% static 'css/owl.css' %}">
     <link rel="stylesheet" href="{% static 'css/animate.css' %}">
     <link rel="stylesheet"href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
+    
 <!--
 
 TemplateMo 591 villa agency
@@ -67,12 +68,11 @@ https://templatemo.com/tm-591-villa-agency
                     <!-- ***** Logo End ***** -->
                     <!-- ***** Menu Start ***** -->
                     <ul class="nav">
-                      <li><a href="index.html" class="active">Home</a></li>
-                      <li><a href="properties.html">Properties</a></li>
-                      <li><a href="property-details.html">Property Details</a></li>
-                      <li><a href="contact.html">Contact Us</a></li>
+                      <li><a href="{% url 'index' %}" class="active">Home</a></li>
+                      <li><a href="{% url 'pro' %}">Properties</a></li>
+                      <li><a href="{% url 'det' %}">Property Details</a></li>
+                      <li><a href="{% url 'contact' %}">Contact Us</a></li>
                       
-                      <li><a href="signup.html">Sign up</a></li>
                       <li><a href="#"><i class="fa fa-calendar"></i> Schedule a visit</a></li>
                   </ul>   
                     <a class='menu-trigger'>
@@ -94,29 +94,49 @@ https://templatemo.com/tm-591-villa-agency
 
 
 
-
-
-
-<form method="post" enctype="multipart/form-data">
-    {% csrf_token %}
-    <section id="login">
-        <div class="pro">
+<form id="contact-form" action="" method="post" >
+    {% csrf_token %} 
+    
+          <center>
             <table>
+
                 <tr>
-                    <td><h3>Username: <input disabled type="text" value="{{d.username}}"</h3></td>
+                    <td><h3>Username: <input type="text" value="{{d.username}}"</h3></td>
                 </tr>
                 <tr>
-                    <td><h3>Email: <input disabled type="text" value="{{d.email}}" </h3></td>
+                    <td><h3>Email: <input type="text" name="gmail" value="{{d.gmail}}" </h3></td>
+                </tr>
+                <tr>
+                    <td><h3>Phone NO: <input type="text" name="phoneno" value="{{d.phoneno}}" </h3></td>
                 </tr>
                 <tr>
                     <td><h3>Password: ************</h3></td>
                 </tr>
+                <tr>
+                  <td><h3>ID: <input disabled type="text" value="{{d.id}}" </h3></td>
+              </tr>
             </table>
-            
-        </div>
-    </section>
+            <div>
+              <fieldset>
+                <button type="submit" id="form-submit">Update</button>
+              </fieldset>
+            </div>
+          </center>
+        
 </form>
 
+
+
+
+<div>
+
+<h9>.</h9>
+<br>
+<br>
+
+
+
+</div>
 
 
 <footer>

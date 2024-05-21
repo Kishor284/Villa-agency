@@ -20,64 +20,69 @@
     <link rel="stylesheet" href="{% static 'css/owl.css' %}">
     <link rel="stylesheet" href="{% static 'css/animate.css' %}">
     <link rel="stylesheet"href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
-<!--
 
-TemplateMo 591 villa agency
-
-https://templatemo.com/tm-591-villa-agency
-
--->
   </head>
 
-<body>
-
-  
-
-  <div class="sub-header">
+  <div class="contact section">
     <div class="container">
       <div class="row">
-        <div class="col-lg-8 col-md-8">
-          <ul class="info">
-            <li><i class="fa fa-envelope"></i> info@company.com</li>
-            <li><i class="fa fa-map"></i> Sunny Isles Beach, FL 33160</li>
-          </ul>
-        </div>
-        <div class="col-lg-4 col-md-4">
-          <ul class="social-links">
-            <li><a href="#"><i class="fab fa-facebook"></i></a></li>
-            <li><a href="https://x.com/minthu" target="_blank"><i class="fab fa-twitter"></i></a></li>
-            <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
-            <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-          </ul>
+        <div class="col-lg-4 offset-lg-4">
+          <div class="section-heading text-center">
+            <h6>SIGN UP</h6>
+            <h2></h2>
+          </div>
         </div>
       </div>
     </div>
   </div>
-  <center>
-    <h1>USERS DETAILS</h1>
-<style background: green;>
-    table, th, td {
-      border: 1px solid rgb(242, 0, 0);
-      border-collapse: collapse;
-    }
-    th,td {text-align:left}
-    </style>
-<table style="width:1350px ; height: 200px;">
-    <th>USERS</th>
-    <th>USERNAME</th>
-    {% for obj in userss %}
-    <tr>
-        <td>{{obj.name}}</td>
-        <td>{{obj.username}}</td>
-        <td>{{obj.phoneno}}</td>
-        <td>{{obj.gmail}}</td>
-        <td>{{obj.password}}</td>
-        
-    </tr>
 
-    {% endfor %}
-</table>
-</center>
+  <div class="contact-content">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-7">
+          <div id="map">
+            
+          </div>
+          <div class="row">
+            <div class="col-lg-6">
+              
+            </div>
+            
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-5">
+          <form id="contact-form" action="" method="post">
+            {%csrf_token%}
+              {{ frm.as_p }}
+              <button type="submit">Upload Image</button>
+          </form>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Number</th>
+                    <th>Image</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for record in record %}
+                <tr>
+                    <td>{{ forloop.counter }}</td>
+                    <td>{{ record.get_image_name }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+
 
 
   <footer>
@@ -88,8 +93,8 @@ https://templatemo.com/tm-591-villa-agency
         Design: <a rel="nofollow" href="https://templatemo.com" target="_blank">TemplateMo</a></p>
       </div>
     </div>
-  </footer>
+</footer>
 
 
   </body>
-</html>
+</html> 

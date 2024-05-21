@@ -1,7 +1,10 @@
-from django.shortcuts import render, redirect
-from . models import signup1, adminadd
-from . forms import signforms
+from django.shortcuts import render, redirect, reverse
+from . models import signup1, sdata, image
+from . forms import signforms, Leaveform, imageform
 from django.contrib.auth import authenticate, login as auhtlogin, logout as authlogout
+from django.conf import settings
+from django.http import HttpResponse
+import os
 # Create your views here.
 
 
@@ -27,8 +30,8 @@ def login(request):
             user1=signup1.objects.get(username=username)
             if user1.username==username:
                 if password==user1.password:
-                    request.session['log']=username
-                    return redirect('index')
+                    request.session['login']=username
+                    return redirect('home')
                 else:
                     return redirect('error')
         except signup1.DoesNotExist:
@@ -36,10 +39,21 @@ def login(request):
     return render(request,'login.html')
 
 def profile(request):
-    users=request.session['login.html']
+    users=request.session['login']
     dataset=signup1.objects.get(username=users)
-    return render(request,'profile.html' ,{'d':dataset})
+    if request.POST:
+        phoneno=request.POST.get('phoneno')
+        email=request.POST.get('gmail')
+        dataset.phoneno=phoneno
+        dataset.gmail=email
+        dataset.save()
+    else:
+        return render(request,'profile.html' ,{'d':dataset})
+    return render(request, 'profile.html',{'d':dataset})
+    
 
+def home(request):
+    return render(request, 'home.html')
 
 def pro(request):
     return render(request, 'properties.html')
@@ -71,15 +85,26 @@ def delete1(request,pk):
     datas=signup1.objects.all()
     return render(request, 'user_details.html', {'userss':datas})
 
-def adminadd(request):
+
+def sdataform(request):
     if request.POST:
-        totalflat=request.POST.get('totalflat')
-        floorno=request.POST.get('floorno')
-        numberofrooms=request.POST.get('numberofrooms')
-        parking=request.POST.get('parking')
-        payment=request.POST.get('payment')
-        description=request.POST.get('description')
-        objj=adminadd(total_flat_space=totalflat, floor_no=floorno, number_of_rooms=numberofrooms,parking_available=parking, payment_process=payment ,description=description)
-        objj.save()
-    return render(request, 'admin_add.html')
+        form = Leaveform(request.POST)
+        if form.is_valid():
+            form.save()
+            # Log the form data
+            print(form.cleaned_data)
+            return redirect(admin) 
+    return render(request,'admin_data_add.html')
+
+
+def images(request):
+    if request.POST:
+        frm = imageform(request.POST, request.FILES)
+        if frm.is_valid():
+            frm.save()
+            return redirect('upload_images')
+        else:
+            frm=imageform()
+        records = image.objects.all()
+        return redirect(request, 'image_upload.html', {'frm': frm}, {'records': records})
 

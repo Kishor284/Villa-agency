@@ -8,11 +8,21 @@ class signup1(models.Model):
     gmail=models.CharField(max_length=50)
     password=models.CharField(max_length=50)
 
-class adminadd(models.Model):
-    total_flat_space=models.CharField(max_length=50)
-    floor_no=models.IntegerField
-    number_of_rooms=models.IntegerField
-    parking_available=models.CharField(max_length=50)
-    payment_process=models.CharField(max_length=50)
-    image=models.ImageField(upload_to='images') 
-    description=models.CharField(max_length=250) 
+
+
+class sdata(models.Model):
+    t1=models.CharField(max_length=55)
+    t2=models.CharField(max_length=55)
+    t3=models.CharField(max_length=55)
+    t4=models.CharField(max_length=55)
+    t5=models.CharField(max_length=55)
+    t6=models.CharField(max_length=60)
+
+    def __str__(self): 
+        return self.t1
+
+
+
+class image(models.Model):
+    t7=models.CharField(max_length=60)
+    t8=models.ImageField(upload_to='images/')
