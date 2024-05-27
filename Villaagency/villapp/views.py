@@ -1,10 +1,11 @@
 from django.shortcuts import render, redirect, reverse
-from . models import signup1, sdata, image
+from . models import signup1, sdata, image1
 from . forms import signforms, Leaveform, imageform
 from django.contrib.auth import authenticate, login as auhtlogin, logout as authlogout
 from django.conf import settings
 from django.http import HttpResponse
 import os
+from urllib.parse import quote
 # Create your views here.
 
 
@@ -100,11 +101,22 @@ def sdataform(request):
 def images(request):
     if request.POST:
         frm = imageform(request.POST, request.FILES)
+        
         if frm.is_valid():
-            frm.save()
-            return redirect('upload_images')
+            nm= frm.cleaned_data['name']
+            em=frm.cleaned_data['uimage']
+            reg= image1(name=nm, uimage=em)
+            reg.save()
+            return redirect('success')
         else:
-            frm=imageform()
-        records = image.objects.all()
-        return redirect(request, 'image_upload.html', {'frm': frm}, {'records': records})
+            print('error')
+    else:
+        frm = imageform()
+    return render(request, 'image_upload.html', {'frm': frm})
 
+def success(request):
+    return HttpResponse('successfully uploaded')
+
+def admin_views_datas(request):
+    views=sdata.objects.all()
+    return render(request, 'admin_data_view.html',{'userss':views})

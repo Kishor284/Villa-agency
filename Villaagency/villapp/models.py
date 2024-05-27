@@ -1,9 +1,10 @@
 from django.db import models
+from os.path import basename
 
 # Create your models here.
 class signup1(models.Model):
     name=models.CharField(max_length=50)
-    username=models.CharField(max_length=50)
+    username=models.CharField(max_length=50) 
     phoneno=models.CharField(max_length=50)
     gmail=models.CharField(max_length=50)
     password=models.CharField(max_length=50)
@@ -23,6 +24,9 @@ class sdata(models.Model):
 
 
 
-class image(models.Model):
-    t7=models.CharField(max_length=60)
-    t8=models.ImageField(upload_to='images/')
+class image1(models.Model):
+    name=models.CharField(max_length=60)
+    uimage=models.ImageField(upload_to='images/')
+
+    def get_image_name(self):
+        return basename(self.uimage.name)

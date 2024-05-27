@@ -28,7 +28,7 @@
       <div class="row">
         <div class="col-lg-4 offset-lg-4">
           <div class="section-heading text-center">
-            <h6>SIGN UP</h6>
+            <h6>Upload</h6>
             <h2></h2>
           </div>
         </div>
@@ -53,19 +53,12 @@
         </div>
         <div class="col-lg-5">
           <form id="contact-form" action="" method="post">
-            {%csrf_token%}
-              {{ frm.as_p }}
+            {% csrf_token %}
+            {{ frm.as_p }}
               <button type="submit">Upload Image</button>
           </form>
 
-        <table>
-            <thead>
-                <tr>
-                    <th>Number</th>
-                    <th>Image</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
+        <!--<table>
             <tbody>
                 {% for record in record %}
                 <tr>
@@ -74,7 +67,7 @@
                 </tr>
                 {% endfor %}
             </tbody>
-        </table>
+        </table>-->
 
         </div>
       </div>

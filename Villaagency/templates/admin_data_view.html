@@ -54,27 +54,31 @@ https://templatemo.com/tm-591-villa-agency
     </div>
   </div>
   <center>
-    <h1>USERS DETAILS</h1>
+    <h1>Data Adds</h1>
 <style background: green;>
     table, th, td {
       border: 1px solid rgb(242, 0, 0);
       border-collapse: collapse;
+      padding-left: 30px;
     }
     th,td {text-align:left}
     </style>
 <table style="width:1350px ; height: 200px;">
-    <th>USERS</th>
-    <th>USERNAME</th>
-    <th>PHONE NO</th>
-    <th>GMAIL</th>
-    <th>PASSWORD</th>
+    
+    <th>Total Flat Area</th>
+    <th>No of Floors</th>
+    <th>Number of Rooms</th>
+    <th>Parking</th>
+    <th>Payment Method</th>
+    <th>Description</th>
     {% for obj in userss %}
     <tr>
-        <td>{{obj.name}}</td>
-        <td>{{obj.username}}</td>
-        <td>{{obj.phoneno}}</td>
-        <td>{{obj.gmail}}</td>
-        <td>{{obj.password}}</td>
+        <td>{{obj.t1}}</td>
+        <td>{{obj.t2}}</td>
+        <td>{{obj.t3}}</td>
+        <td>{{obj.t4}}</td>
+        <td>{{obj.t5}}</td>
+        <td>{{obj.t6}}</td>
         
     </tr>
 
