@@ -1,10 +1,8 @@
 {%load static%}
 <!DOCTYPE html>
 <html lang="en">
-
-  <head>
-
-    <meta charset="utf-8">
+<head>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
@@ -20,65 +18,49 @@
     <link rel="stylesheet" href="{% static 'css/owl.css' %}">
     <link rel="stylesheet" href="{% static 'css/animate.css' %}">
     <link rel="stylesheet"href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
-
-  </head>
-
-  <div class="contact section">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-4 offset-lg-4">
-          <div class="section-heading text-center">
-            <h6>Upload</h6>
-            <h2></h2>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="contact-content">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-7">
-          <div id="map">
-            
-          </div>
+</head>
+<body>
+    <div class="contact section">
+        <div class="container">
           <div class="row">
-            <div class="col-lg-6">
-              
-            </div>
-            
+            <div class="col-lg-4 offset-lg-4">
+              <div class="section-heading text-center">
+                <h6>Upload</h6>
+                <h2></h2>
+              </div>
             </div>
           </div>
         </div>
-        <div class="col-lg-5">
-          <form id="contact-form" action="" method="post">
-            {% csrf_token %}
-            {{ frm.as_p }}
-              <button type="submit">Upload Image</button>
-          </form>
-
-        <!--<table>
-            <tbody>
-                {% for record in record %}
-                <tr>
-                    <td>{{ forloop.counter }}</td>
-                    <td>{{ record.get_image_name }}</td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>-->
-
-        </div>
       </div>
-    </div>
-  </div>
+      <div class="contact-content">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-7">
+              <div id="map">
+                
+              </div>
+              <div class="row">
+                <div class="col-lg-6">
+                  
+                </div>
+                
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-5">
+    <form id="contact-form" method = "post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Upload</button>
+    </form>
 
-  
+    
+</div>
+</div>
+</div>
+</div>
 
-
-
-  <footer>
+<footer>
     <div class="container">
       <div class="col-lg-8">
         <p>Copyright © 2048 Villa Agency Co., Ltd. All rights reserved. 
@@ -88,6 +70,5 @@
     </div>
 </footer>
 
-
-  </body>
-</html> 
+</body>
+</html>

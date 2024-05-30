@@ -17,9 +17,9 @@ urlpatterns=[
     path('del1/<pk>',views.delete1, name='delete1'),
     path('home/',views.home, name='home'),
     path('if/',views.sdataform, name='admin_data_add'),
-    path('upload/',views.images, name='upload_images'),
     path('views/',views.admin_views_datas, name='views'),
-    path('success', views.success, name='success'),
+    path('success/', views.success, name='success'),
+    path('image2/', views.uploads, name='image2'),
        
 ]
 if settings.DEBUG:
