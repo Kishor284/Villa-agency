@@ -20,6 +20,9 @@ urlpatterns=[
     path('views/',views.admin_views_datas, name='views'),
     path('success/', views.success, name='success'),
     path('image2/', views.uploads, name='image2'),
+    path('cart/', views.cart, name='cart'),
+    path('data/', views.Data, name='data'),
+    path('dview/', views.dataviewss, name='dview'),
        
 ]
 if settings.DEBUG:

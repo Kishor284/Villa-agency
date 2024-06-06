@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, reverse
-from . models import signup1, sdata,  villaimage
-from . forms import signforms, Leaveform, villaimageform
+from . models import signup1, sdata,  villaimage, Data
+from . models import Data as Data1
+from . forms import signforms, Leaveform, villaimageform, Dataform
 from django.contrib.auth import authenticate, login as auhtlogin, logout as authlogout
 from django.conf import settings
 from django.http import HttpResponse
@@ -113,5 +114,25 @@ def uploads(request):
     else:
         form=villaimageform()
     return render(request, 'imgupload.html',{'form':form})
+
+
+def Data(request):
+    if request.POST:
+        form = Dataform(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('success') 
+    else:
+        form=Dataform()
+    return render(request,'Dataadd.html',{'form': form})
+
+
+def cart(request):
+    return render(request, 'cart.html',)
+
+def dataviewss(request):
+    dviews=Data1.objects.all()
+    return render(request, 'dataview.html',{'userss':dviews})
+
 
 

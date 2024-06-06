@@ -16,8 +16,7 @@ class sdata(models.Model):
     t3=models.CharField(max_length=55)
     t4=models.CharField(max_length=55)
     t5=models.CharField(max_length=55)
-    t6=models.CharField(max_length=60)
-
+    t6=models.ImageField(upload_to='images/')
     def __str__(self): 
         return self.t1
 
@@ -25,3 +24,11 @@ class sdata(models.Model):
 class villaimage(models.Model):
     name=models.CharField(max_length=50)
     images=models.ImageField(upload_to='images/')
+
+class Data(models.Model):
+    BED = models.CharField(max_length=50)
+    BATH = models.CharField(max_length=50)
+    ARE = models.CharField(max_length=50)
+    FLO = models.CharField(max_length=50)
+    PAR = models.CharField(max_length=50)
+    IMG = models.ImageField(upload_to='images/')

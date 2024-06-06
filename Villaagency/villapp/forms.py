@@ -1,4 +1,4 @@
-from . models import signup1, sdata, villaimage
+from . models import signup1, sdata, villaimage, Data
 from django import forms
 
 class signforms(forms.ModelForm):
@@ -18,3 +18,9 @@ class villaimageform(forms.ModelForm):
     class Meta:
         model=villaimage
         fields=['name','images']
+
+
+class Dataform(forms.ModelForm):
+    class Meta:
+        model=Data
+        fields=['BED','BATH','ARE','FLO','PAR','IMG']

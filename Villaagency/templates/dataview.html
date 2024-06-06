@@ -57,9 +57,10 @@ https://templatemo.com/tm-591-villa-agency
     <h1>Data Adds</h1>
 <style background: green;>
     table, th, td {
-      border: 1px solid rgb(242, 0, 0);
+      border: 4px solid rgb(242, 0, 0);
       border-collapse: collapse;
       padding-left: 30px;
+      border-radius: 3px;
     }
     th,td {text-align:left}
     </style>
@@ -73,12 +74,14 @@ https://templatemo.com/tm-591-villa-agency
     <th>IMAGE</th>
     {% for obj in userss %}
     <tr>
-        <td>{{obj.t1}}</td>
-        <td>{{obj.t2}}</td>
-        <td>{{obj.t3}}</td>
-        <td>{{obj.t4}}</td>
-        <td>{{obj.t5}}</td>
-        <td>{{obj.t6}}</td>
+        <td>{{obj.BED}}</td>
+        <td>{{obj.BATH}}</td>
+        <td>{{obj.ARE}}</td>
+        <td>{{obj.FLO}}</td>
+        <td>{{obj.PAR}}</td>
+        {% if obj.IMG %}
+        <td><img src="{{obj.IMG.url}}"></img></td>
+        {% endif %}
         
     </tr>
 
